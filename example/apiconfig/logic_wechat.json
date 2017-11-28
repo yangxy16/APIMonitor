@@ -1,0 +1,12 @@
+{
+	"WebServiceAPI" : [{
+		"url" : "http://www.soapclient.com/xml/soapresponder.wsdl",
+		"retry_times" : 3,
+		"max_response_time" : "1s",
+		"method" : "Method1",
+		"params" : { "param1" : "dayu", "param2" : "is cool"},
+		"assert_data" : "text:Your input parameters are dayu and is cool",
+		"delay_time" : "10s",
+        "enabled" : true
+	}]
+}

@@ -1,5 +1,5 @@
 ## Use Monitor
-* Requere Python >= 3.6.0
+* Require Python >= 3.6.0
 * pip3 install https://github.com/yangxy16/APIMonitor/releases/download/v0.1.0/APIMonitor-0.1.0.tar.gz
 
 ```
@@ -22,9 +22,11 @@ if __name__ == '__main__':
 
 ## Configure Monitor
 ```
-支持按照目录读取多个配置文件，格式如下：
+支持按照目录读取多个配置文件，配置文件格式如下：
+```
   
-1.通用HTTP接口参数说明：
+* 1.通用HTTP接口参数说明：
+```
     url                 请求地址
     method              get 或 post 请一律用小写形式
     retry_times         失败重试次数
@@ -46,43 +48,45 @@ if __name__ == '__main__':
     post_msg            接口为post方式是提交的字符串参数
     delay_time          接口探测间隔时间，参数设置同max_response_time，最小0.1s
     enabled             表示是否对接口进行探测
+```
   
-2.WebService接口参数说明：
+* 2.WebService接口参数说明：
+```
     method              远程WebService的函数名
     params              远程WebService的函数参数，参数个数不限，形式必须是{"param1":"*", "param2":"*", "paramN":"*"}
                         代表从第1个到第N个参数的有序排列，key必须是param+数字，否则不能保证参数顺序
   
     其他参数同HTTP接口
+```
   
-3.示例：
-{
-    "CommonHttpAPI" : [{
-        "url" : "http://www.blue-zero.com/WebSocket/",
-        "method" : "get",
-        "retry_times" : 3,
-        "max_response_time" : "3s",
-        "status" : [ 200, 301, 302 ],
-        "assert_data" : "text:</html>",
-        "post_msg" : "json/xml",
-        "delay_time" : "10s",
-        "enabled" : true
-    }],
-    "WebServiceAPI" : [{
-        "url" : "http://www.soapclient.com/xml/soapresponder.wsdl",
-        "retry_times" : 3,
-        "max_response_time" : "0.1s",
-        "method" : "Method1",
-        "params" : { "param1" : "dayu", "param2" : "is cool"},
-        "assert_data" : "text:Your input parameters are dayu and is cool",
-        "delay_time" : "10s",
-        "enabled" : true
-    }]
-}
+* 3.完整示例：
+```
+    {
+        "CommonHttpAPI" : [{
+            "url" : "http://www.blue-zero.com/WebSocket/",
+            "method" : "get",
+            "retry_times" : 3,
+            "max_response_time" : "3s",
+            "status" : [ 200, 301, 302 ],
+            "assert_data" : "text:</html>",
+            "post_msg" : "json/xml",
+            "delay_time" : "10s",
+            "enabled" : true
+        }],
+        "WebServiceAPI" : [{
+            "url" : "http://www.soapclient.com/xml/soapresponder.wsdl",
+            "retry_times" : 3,
+            "max_response_time" : "0.1s",
+            "method" : "Method1",
+            "params" : { "param1" : "dayu", "param2" : "is cool"},
+            "assert_data" : "text:Your input parameters are dayu and is cool",
+            "delay_time" : "10s",
+            "enabled" : true
+        }]
+    }
 ```
 
 ## ToDoList
-```
-1）HTTP接口支持设置自定义HTTP头
-2）xml格式数据校验
-3）支持事务型接口，即：支持上下文数据，比如调用接口首先需要去请求token，或者该接口的参数依赖于某个接口的返回数据
-```
+* HTTP接口支持设置自定义HTTP头
+* xml格式数据校验
+* 支持事务型接口，即：支持上下文数据，比如调用接口首先需要去请求token，或者该接口的参数依赖于某个接口的返回数据

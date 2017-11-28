@@ -9,9 +9,9 @@ if __name__ == '__main__':
     monitorPath = './apiconfig/'
 
     if enableCluster:
-        redisCluster = [{'host': '10.96.170.30', 'port': '6379'},
-                        {'host': '10.96.170.31', 'port': '6379'},
-                        {'host': '10.96.170.32', 'port': '6379'}]
+        redisCluster = [{'host': '127.0.0.1', 'port': '6379'},
+                        {'host': '127.0.0.1', 'port': '6380'},
+                        {'host': '127.0.0.1', 'port': '6381'}]
     else:
         redisCluster = None
 

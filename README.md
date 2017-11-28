@@ -1,10 +1,7 @@
-## Install Monitor
-* Requere Python >= 3.6.0
-* pip install APIMonitor-0.1.0.tar.gz
-* python3 ESHB.py
-* Building And Testing On Windows 10 / CentOS 6.9
-
 ## Use Monitor
+* Requere Python >= 3.6.0
+* pip3 install https://github.com/yangxy16/APIMonitor/releases/download/v0.1.0/APIMonitor-0.1.0.tar.gz
+
 ```
 from APIMonitor import Monitor
 
@@ -14,9 +11,9 @@ if __name__ == '__main__':
     monitorPath = './apiconfig/'
 
     if enableCluster:
-        redisCluster = [{'host': '10.96.170.30', 'port': '6379'},
-                        {'host': '10.96.170.31', 'port': '6379'},
-                        {'host': '10.96.170.32', 'port': '6379'}]
+        redisCluster = [{'host': '127.0.0.1', 'port': '6379'},
+                        {'host': '127.0.0.1', 'port': '6380'},
+                        {'host': '127.0.0.1', 'port': '6381'}]
     else:
         redisCluster = None
 

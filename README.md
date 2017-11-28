@@ -50,7 +50,7 @@ if __name__ == '__main__':
 2.WebService接口参数说明：
     method              远程WebService的函数名
     params              远程WebService的函数参数，参数个数不限，形式必须是{"param1":"*", "param2":"*", "paramN":"*"}
-                        代表从第1个到第N个参数的有序排列
+                        代表从第1个到第N个参数的有序排列，key必须是param+数字，否则不能保证参数顺序
   
     其他参数同HTTP接口
   

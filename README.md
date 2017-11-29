@@ -1,3 +1,10 @@
+## Features
+
+* 采用多进程+多线程模型，充分利用系统资源
+* 支持对标准HTTP/WebService类型的API接口进行探测
+* 支持对API返回的纯文本/Json/Xml类型结果进行校验
+* 监控日志支持写本地和Redis集群两种方式，Redis的Key为ESHB:*****
+
 ## Use Monitor
 * Require Python >= 3.6.0
 * pip3 install https://github.com/yangxy16/APIMonitor/releases/download/v0.1.0/APIMonitor-0.1.0.tar.gz

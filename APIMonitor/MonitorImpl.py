@@ -32,7 +32,8 @@ class MonitorImpl( object ):
     def __init__(self, path, cluster_nodes=None):
         self.path = path
         self.redisClusterNodes = cluster_nodes
-
+    
+    @staticmethod
     def logPath():
         logPath = ''
         try:
@@ -46,9 +47,11 @@ class MonitorImpl( object ):
             pass
         return logPath
 
+    @staticmethod
     def serializeToJson(lstMonitor, clusterNodes):
         return json.dumps(dict(monitor=lstMonitor, cluster=clusterNodes))
 
+    @staticmethod
     def monitorObjectCapture(obj, redisCluster):
         obj.task_status = True
         ret_type = RequestType.TYPE_NONE
@@ -67,6 +70,7 @@ class MonitorImpl( object ):
             logging.info(json_data)
         obj.task_status = False
 
+    @staticmethod
     def monitorProcessDispatch(jsonData):
         data = json.loads(jsonData)
         lstMonitor = data.get('monitor')

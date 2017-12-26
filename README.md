@@ -7,7 +7,7 @@
 
 ## Use Monitor
 * Require Python >= 3.6.0
-* pip3 install https://github.com/yangxy16/APIMonitor/releases/download/v0.1.0/APIMonitor-0.1.0.tar.gz
+* pip3 install git+https://github.com/yangxy16/APIMonitor
 
 ```
 from APIMonitor import Monitor

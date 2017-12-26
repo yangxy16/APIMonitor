@@ -40,6 +40,7 @@ if __name__ == '__main__':
             "assert_data" : "text:</html>",
             "post_msg" : "json/xml",
             "delay_time" : "10s",
+            "custom_header" : { "refer" : "www.baidu.com", "User-Agent" : "Lenovo APIMonitor" },
             "enabled" : true
         }],
         "WebServiceAPI" : [{
@@ -76,6 +77,7 @@ if __name__ == '__main__':
 
 
     post_msg            接口为post方式是提交的字符串参数
+    custom_header       自定义HTTP头
     delay_time          接口探测间隔时间，参数设置同max_response_time，最小0.1s
     enabled             表示是否对接口进行探测
 ```
@@ -90,6 +92,5 @@ if __name__ == '__main__':
 ```
   
 ## ToDoList
-* HTTP接口支持设置自定义HTTP头
 * xml格式数据校验
 * 支持事务型接口，即：支持上下文数据，比如调用接口首先需要去请求token，或者该接口的参数依赖于某个接口的返回数据

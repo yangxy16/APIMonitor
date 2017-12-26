@@ -20,7 +20,7 @@ __author__ = 'yangxy16@lenovo.com'
 
 # 普通HTTP接口对象
 class CommonHttpObject(MonitorObject):
-    __slots__ = MonitorObject.__slots__ + ('post_msg',)
+    __slots__ = MonitorObject.__slots__ + ('post_msg', 'custom_header')
 
     def __init__(self, v):
         super(CommonHttpObject, self).__init__()
@@ -34,6 +34,7 @@ class CommonHttpObject(MonitorObject):
         self.delay_time = v['delay_time']
         self.enabled = v['enabled']
         self.obj_type = v['obj_type']
+        self.custom_header = v['custom_header']
         self.max_response_time = MonitorObject.formatTime(self.max_response_time)
         self.delay_time = MonitorObject.formatTime(self.delay_time)
         self.assert_type, self.assert_data = MonitorObject.formatAssertType(self.assert_data)
@@ -43,9 +44,9 @@ class CommonHttpObject(MonitorObject):
         try:
             resp = None
             if self.method == "get":
-                resp = rq.get(url=self.url, timeout=self.max_response_time)
+                resp = rq.get(url=self.url, timeout=self.max_response_time, headers=self.custom_header)
             elif self.method == "post":
-                resp = rq.post(url=self.url, data=self.post_msg, timeout=self.max_response_time)
+                resp = rq.post(url=self.url, data=self.post_msg, timeout=self.max_response_time, headers=self.custom_header)
             self.resp_time = time.time() - start_time
             self.resp_status = resp.status_code
             self.last_finish_time = time.time()

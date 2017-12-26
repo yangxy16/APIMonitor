@@ -1,12 +1,24 @@
 {
-	"WebServiceAPI" : [{
-		"url" : "http://www.soapclient.com/xml/soapresponder.wsdl",
-		"retry_times" : 3,
-		"max_response_time" : "1s",
-		"method" : "Method1",
-		"params" : { "param1" : "dayu", "param2" : "is cool"},
-		"assert_data" : "text:Your input parameters are dayu and is cool",
-		"delay_time" : "10s",
+    "CommonHttpAPI" : [{
+        "url" : "http://www.blue-zero.com/WebSocket/",
+        "method" : "get",
+        "retry_times" : 3,
+        "max_response_time" : "3s",
+        "status" : [ 200, 301, 302 ],
+        "assert_data" : "text:</html>",
+        "post_msg" : "json/xml",
+        "delay_time" : "10s",
+        "custom_header" : { "refer" : "www.baidu.com", "User-Agent" : "Lenovo APIMonitor" },
         "enabled" : true
-	}]
+    }],
+    "WebServiceAPI" : [{
+        "url" : "http://www.soapclient.com/xml/soapresponder.wsdl",
+        "retry_times" : 3,
+        "max_response_time" : "0.1s",
+        "method" : "Method1",
+        "params" : { "param1" : "dayu", "param2" : "is cool"},
+        "assert_data" : "text:Your input parameters are dayu and is cool",
+        "delay_time" : "10s",
+        "enabled" : true
+    }]
 }
